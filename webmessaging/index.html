@@ -6,6 +6,31 @@
 </body>
 
 <script>
+    function toggleMessenger() {
+    Genesys(
+        'command',
+        'Messenger.open',
+        {},
+        function (o) {
+        closeLauncher()
+        Genesys('command', 'Database.set', {
+            messaging: {
+            customAttributes: {
+                firstName: document.getElementById('fname').value,
+                lastName: document.getElementById('lname').value,
+                email: document.getElementById('email').value,
+                case: document.getElementById('case').value,
+                queueName: document.getElementById('queue').value,
+            },
+            },
+        })
+        },
+        function (o) {
+        Genesys('command', 'Messenger.close')
+        }
+    )
+    }
+
     let fnameL = document.createElement('label');
     let fnameI = document.createElement('input');
     let lnameL = document.createElement('label');
@@ -59,7 +84,11 @@
     document.body.appendChild(caseI);
     document.body.appendChild(queueL);
     document.body.appendChild(queueS);
+    document.body.appendChild(submit);
    
+    submit.onclick = function() {
+        toggleMessenger()
+    }
 </script>
 
 
