@@ -6,58 +6,59 @@
 </body>
 
 <script>
-    let fnameL = document.createElement('label')
-    let fnameI = document.createElement('input')
-    let lnameL = document.createElement('label')
-    let lnameI = document.createElement('input')
-    let emailL = document.createElement('label')
-    let emailI = document.createElement('input')
-    let caseL = document.createElement('label')
-    let caseI = document.createElement('input')
-    let queueL = document.createElement('label')
-    let queueS = document.createElement('select')
-    let option1 = document.createElement('option')
-    let option2 = document.createElement('option')
-    let option3 = document.createElement('option')
-    let submit = document.createElement('button')
+    let fnameL = document.createElement('label');
+    let fnameI = document.createElement('input');
+    let lnameL = document.createElement('label');
+    let lnameI = document.createElement('input');
+    let emailL = document.createElement('label');
+    let emailI = document.createElement('input');
+    let caseL = document.createElement('label');
+    let caseI = document.createElement('input');
+    let queueL = document.createElement('label');
+    let queueS = document.createElement('select');
+    let option1 = document.createElement('option');
+    let option2 = document.createElement('option');
+    let option3 = document.createElement('option');
+    let submit = document.createElement('button');
 
-    fnameL.innerText = 'First Name'
-    fnameI.id = 'fname'
+    fnameL.innerText = 'First Name';
+    fnameI.id = 'fname';
+    fnameI.placeholder = 'Your first name..';
+    lnameL.innerText = 'Last Name';
+    lnameI.id = 'lname';
+    lnameI.placeholder = 'Your last name..';
+    emailL.innerText = 'Email';
+    emailI.id = 'email';
+    emailI.placeholder = 'Your email address..';
+    caseL.innerText = 'Case';
+    caseI.id = 'case';
+    caseI.placeholder = 'Optional case number..';
+    queueL.innerText = 'Queue';
+    queueS.id = 'queue';
 
-    fnameI.placeholder = 'Your first name..'
-    lnameL.innerText = 'Last Name'
-    lnameI.id = 'lname'
-    lnameI.placeholder = 'Your last name..'
-    emailL.innerText = 'Email'
-    emailI.id = 'email'
-    emailI.placeholder = 'Your email address..'
-    caseL.innerText = 'Case'
-    caseI.id = 'case'
-    caseI.placeholder = 'Optional case number..'
-    queueL.innerText = 'Queue'
-    queueS.id = 'queue'
+    submit.type=submit;
+    submit.innerHTML="Submit";
   
-    option1.value = 'sales'
-    option1.innerText = 'Sales'
-    option2.value = 'support'
-    option2.innerText = 'Support'
-    option3.value = 'general'
-    option3.innerText = 'General'
+    option1.value = 'sales';
+    option1.innerText = 'Sales';
+    option2.value = 'support';
+    option2.innerText = 'Support';
+    option3.value = 'general';
+    option3.innerText = 'General';
 
-    queueS.appendChild(option1)
-    queueS.appendChild(option2)
-    queueS.appendChild(option3)
-    document.body.appendChild(fnameL)
-    document.body.appendChild(fnameI)
-    document.body.appendChild(lnameL)
-    document.body.appendChild(lnameI)
-    document.body.appendChild(emailL)
-    document.body.appendChild(emailI)
-    document.body.appendChild(caseL)
-    document.body.appendChild(caseI)
-    document.body.appendChild(queueL)
-    document.body.appendChild(queueS)
-   
+    queueS.appendChild(option1);
+    queueS.appendChild(option2);
+    queueS.appendChild(option3);
+    document.body.appendChild(fnameL);
+    document.body.appendChild(fnameI);
+    document.body.appendChild(lnameL);
+    document.body.appendChild(lnameI);
+    document.body.appendChild(emailL);
+    document.body.appendChild(emailI);
+    document.body.appendChild(caseL);
+    document.body.appendChild(caseI);
+    document.body.appendChild(queueL);
+    document.body.appendChild(queueS);
    
 </script>
 
