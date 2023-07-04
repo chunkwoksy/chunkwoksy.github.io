@@ -1,11 +1,79 @@
-<!DOCTYPE html>
-<html>
-<body>
-<h1>This is my testing Web Messaging host page</h1>
-<p>I'm hosted with GitHub Pages.</p>
-</body>
+'use strict'
 
-<script>
+//Variables to change in your deployment
+const deploymentId = 'ENTER_YOUR_DEPLOYMENTID' //Your WebMessenger DeploymentId
+const hexColor = '#000000' //Color theme
+
+function toggleMessenger() {
+  Genesys(
+    'command',
+    'Messenger.open',
+    {},
+    function (o) {
+      closeLauncher()
+      Genesys('command', 'Database.set', {
+        messaging: {
+          customAttributes: {
+            firstName: document.getElementById('fname').value,
+            lastName: document.getElementById('lname').value,
+            email: document.getElementById('email').value,
+            case: document.getElementById('case').value,
+            queueName: document.getElementById('queue').value,
+          },
+        },
+      })
+    },
+    function (o) {
+      Genesys('command', 'Messenger.close')
+    }
+  )
+}
+
+function closeLauncher() {
+  let input = document.getElementById('input')
+  input.hidden = true
+  console.log('Hiding...')
+}
+
+function openLauncher() {
+  let session = JSON.parse(localStorage.getItem(`_${deploymentId}:gcmcsessionActive`))
+  let input = document.getElementById('input')
+  console.log(session?.value)
+  if (session?.value) {
+    console.log('Opening Widget...')
+    Genesys(
+      'command',
+      'Messenger.open',
+      {},
+      function (o) {
+        closeLauncher()
+      },
+      function (o) {
+        Genesys('command', 'Messenger.close')
+      }
+    )
+  } else {
+    console.log('showing...')
+    input.hidden = false
+  }
+}
+
+//Create Launcher
+let launcher = document.createElement('button')
+launcher.onclick = function () {
+  openLauncher()
+}
+launcher.style = `cursor: pointer;
+      box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 5px -2px, rgba(0, 0, 0, 0.14) 0px 1px 4px 2px, rgba(0, 0, 0, 0.12) 0px 1px 4px 1px;
+      position: fixed !important;
+      bottom: 30px !important;
+      width: 56px;
+      height: 56px;
+      right: 30px !important;
+      border-radius: 50%;
+      background-color: ${hexColor};
+      z-index: 9999;
+      border: 0px;`
 launcher.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#FFFFFF"><path d="M0 0h24v24H0z" fill="none"/><path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"/></svg>`
 document.body.appendChild(launcher)
 
@@ -120,23 +188,48 @@ border: none;
 border-radius: 4px;
 cursor: pointer;`
 submit.innerText = 'Submit'
-</script>
+submit.onclick = function () {
+  toggleMessenger()
+}
 
-<script type="text/javascript" charset="utf-8">
-    (function (g, e, n, es, ys) {
-      g['_genesysJs'] = e;
-      g[e] = g[e] || function () {
-        (g[e].q = g[e].q || []).push(arguments)
-      };
-      g[e].t = 1 * new Date();
-      g[e].c = es;
-      ys = document.createElement('script'); ys.async = 1; ys.src = n; ys.charset = 'utf-8'; document.head.appendChild(ys);
-    })(window, 'Genesys', 'https://apps.mypurecloud.jp/genesys-bootstrap/genesys.min.js', {
-      environment: 'apne1',
-      deploymentId: '86d50ece-2f54-41e1-9965-006bb5386d1d'
-    });
-  </script>
+queueS.appendChild(option1)
+queueS.appendChild(option2)
+queueS.appendChild(option3)
+form.appendChild(fnameL)
+form.appendChild(fnameI)
+form.appendChild(lnameL)
+form.appendChild(lnameI)
+form.appendChild(emailL)
+form.appendChild(emailI)
+form.appendChild(caseL)
+form.appendChild(caseI)
+form.appendChild(queueL)
+form.appendChild(queueS)
+form.appendChild(submit)
+input.appendChild(form)
 
+document.body.appendChild(input)
 
+//listen to screen sizing for mobile & dynamic pc
+function sizeChanged() {
+  if (window.innerWidth < 600 && screenSize != 'mobile') {
+    screenSize = 'mobile'
+    let input = document.getElementById('input')
+    input.style.width = '100%'
+    input.style.height = '100%'
+    input.style.bottom = 0
+    input.style.right = 0
+  }
+  if (window.innerWidth > 600 && screenSize != 'pc') {
+    screenSize = 'pc'
+    let input = document.getElementById('input')
+    input.style.width = '408px'
+    input.style.height = '648px'
+    input.style.bottom = '30px'
+    input.style.right = '30px'
+  }
+}
 
-</html>
+let screenSize = ''
+window.addEventListener('resize',sizeChanged)
+sizeChanged()
