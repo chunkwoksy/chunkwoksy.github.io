@@ -22,29 +22,21 @@
     let submit = document.createElement('button')
 
     fnameL.innerText = 'First Name'
-    fnameL.style = `font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', 'sans-serif';`
     fnameI.id = 'fname'
-    fnameI.style = `      width: 100%; padding: 12px 20px; margin: 8px 0; display: inline-block; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;`
+
     fnameI.placeholder = 'Your first name..'
     lnameL.innerText = 'Last Name'
-    lnameL.style = `font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', 'sans-serif';`
     lnameI.id = 'lname'
-    lnameI.style = `      width: 100%; padding: 12px 20px; margin: 8px 0; display: inline-block; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;`
     lnameI.placeholder = 'Your last name..'
     emailL.innerText = 'Email'
-    emailL.style = `font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', 'sans-serif';`
     emailI.id = 'email'
-    emailI.style = `      width: 100%; padding: 12px 20px; margin: 8px 0; display: inline-block; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;`
     emailI.placeholder = 'Your email address..'
     caseL.innerText = 'Case'
-    caseL.style = `font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', 'sans-serif';`
     caseI.id = 'case'
-    caseI.style = `      width: 100%; padding: 12px 20px; margin: 8px 0; display: inline-block; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;`
     caseI.placeholder = 'Optional case number..'
     queueL.innerText = 'Queue'
-    queueL.style = `font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', 'sans-serif';`
     queueS.id = 'queue'
-    queueS.style = `    width: 100%;
+  
     option1.value = 'sales'
     option1.innerText = 'Sales'
     option2.value = 'support'
@@ -55,17 +47,17 @@
     queueS.appendChild(option1)
     queueS.appendChild(option2)
     queueS.appendChild(option3)
-    document.appendChild(fnameL)
-    document.appendChild(fnameI)
-    document.appendChild(lnameL)
-    document.appendChild(lnameI)
-    document.appendChild(emailL)
-    document.appendChild(emailI)
-    document.appendChild(caseL)
-    document.appendChild(caseI)
-    document.appendChild(queueL)
-    document.appendChild(queueS)
-    document.appendChild(submit)
+    document.body.appendChild(fnameL)
+    document.body.appendChild(fnameI)
+    document.body.appendChild(lnameL)
+    document.body.appendChild(lnameI)
+    document.body.appendChild(emailL)
+    document.body.appendChild(emailI)
+    document.body.appendChild(caseL)
+    document.body.appendChild(caseI)
+    document.body.appendChild(queueL)
+    document.body.appendChild(queueS)
+   
    
 </script>
 
