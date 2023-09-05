@@ -3,6 +3,16 @@
 <body>
 <h1>This is my  Web Messaging testing page v004</h1>
 <p>I'm hosted with GitHub Pages.</p>
+
+<script>
+  function clearSession() {
+    localStorage.removeItem(`_1c077c42-7a8e-421b-85b1-3a4ae63f39f9:gcmcopn`)
+    localStorage.removeItem(`_1c077c42-7a8e-421b-85b1-3a4ae63f39f9:gcmcsessionActive`)
+    Genesys('command', 'Identifiers.purgeAll', {})
+    document.location.reload();
+  }
+</script>
+<button id="clearsession" onclick="clearSession()">Clear Session</button>
 </body>
 
 
@@ -47,18 +57,6 @@
       Genesys("subscribe", "Conversations.opened", function (o) { sessionStorage.setItem('gc_widget', 'true') });
       //Notification End----->
 </script>
-
-<body>
-  <script>
-    function clearSession() {
-      localStorage.removeItem(`_1c077c42-7a8e-421b-85b1-3a4ae63f39f9:gcmcopn`)
-      localStorage.removeItem(`_1c077c42-7a8e-421b-85b1-3a4ae63f39f9:gcmcsessionActive`)
-      Genesys('command', 'Identifiers.purgeAll', {})
-      document.location.reload();
-    }
-  </script>
-  <button id="clearsession" onclick="clearSession()">Clear Session</button>
-</body>
 
 <script src="inviteform.js" defer></script>
 
